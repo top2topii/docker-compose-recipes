@@ -4,7 +4,7 @@
 ## 설치후 한 일
 - dbuser 생성
 ```sh
-docker exec -it 9a..... /bin/sh
+docker exec -it postgres10 /bin/sh
 su - postgres
 psql
 
