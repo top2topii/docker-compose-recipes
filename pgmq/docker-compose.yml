@@ -1,0 +1,19 @@
+version: "3"
+services:
+  db:
+    image: tembo.docker.scarf.sh/tembo/pg17-pgmq:latest
+    container_name: pgmq-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      TZ: "Asia/Seoul"
+      POSTGRES_INITDB_ARGS: "-k -E UTF8 --lc-collate=C"
+      POSTGRES_USER: "${DB_USER_ID}"
+      POSTGRES_PASSWORD: "${DB_USER_PASSWORD}"
+      POSTGRES_DB: "${DB_NAME}"
+    volumes:
+      - pgmq-data:/var/lib/postgresql/data
+
+volumes:
+  pgmq-data:
